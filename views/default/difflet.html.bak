@@ -1,0 +1,29 @@
+{{extend 'layout.html'}}
+<h1>This is the default/difflet.html template</h1>
+<!-- {{=BEAUTIFY(response._vars)}} -->
+<style>
+div {
+   margin: 0 auto;
+    border: 1px solid black;
+    text-align: center;
+}
+.dp{
+   width=100px;
+    margin: 0 auto;
+}
+</style>
+<div class="header">
+    <span>{{=e1}}</span>|
+    <span>{{=e2}}</span>
+</div><br>
+<div class="main-difflet">
+    {{for i in range(len(s1_res)):}}
+        <div class="dp">
+            {{=s1_res[i][0]}}
+        </div>
+       <div>
+           <span>{{=s1_res[i][1]}}</span> | 
+           <span>{{=s2_res[i][1]}}</span> 
+       </div><br>
+    {{pass}}
+</div>
