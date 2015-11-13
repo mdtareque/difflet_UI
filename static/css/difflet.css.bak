@@ -23,7 +23,7 @@ div.addDp span { padding: 5px 20px; border-radius: 30px;}
 
 div.main div.leftPane {text-align: right; border-right: 1px solid black;}
 
-div.main div.rightPane {text-align: left; border-left: 1px solid black; }
+div.main div.rightPane {text-align: left; border-left: 1px solid black; margin-left: -1px;}
     
 div.heading div {border: 0px solid red; text-align:center; text-transform: capitalize; font-weight: bold; padding-bottom: 1em; margin: .2em 0; padding-top: 1em; vertical-align: middle;
 font-size: 1.2em;
