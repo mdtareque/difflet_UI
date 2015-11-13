@@ -8,6 +8,10 @@
 ## - download is for downloading files uploaded in the db (does streaming)
 #########################################################################
 
+def difflet_template():
+    #redirect(URL('static', 'difflet_template.html'))
+    return locals()
+
 def index():
     """
     example action using the internationalization operator T and flash

@@ -1,0 +1,32 @@
+body {font-family: 'Open Sans', sans-serif;}
+
+div.main, div.main div {
+        min-height: 5px;
+        line-height: 1.7em;
+}
+div.main{margin-bottom: 2em;}
+
+.dp{text-align: center; margin: 1em 0; padding: .2em; }
+
+.dp span{
+        border: 1px solid black;
+        padding: 1px 20px;
+        border-radius: 40px;
+        background-color: #eae9e8
+    }
+
+.secondOnwards  {margin-top: .2em;}
+
+div.addDp {margin-top: 1em;}
+
+div.addDp span { padding: 5px 20px; border-radius: 30px;}
+
+div.main div.leftPane {text-align: right; border-right: 1px solid black;}
+
+div.main div.rightPane {text-align: left; border-left: 1px solid black; }
+    
+div.heading div {border: 0px solid red; text-align:center; text-transform: capitalize; font-weight: bold; padding-bottom: 1em; margin: .2em 0; padding-top: 1em; vertical-align: middle;
+font-size: 1.2em;
+}
+
+div.main div.heading div.leftPane {text-align: center; border-right: 1px solid black;}

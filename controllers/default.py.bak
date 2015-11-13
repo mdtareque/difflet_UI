@@ -8,6 +8,10 @@
 ## - download is for downloading files uploaded in the db (does streaming)
 #########################################################################
 
+def difflet_temp():
+    #redirect(URL('static', 'difflet_template.html'))
+    return locals()
+
 def index():
     """
     example action using the internationalization operator T and flash
@@ -25,9 +29,9 @@ def difflet():
     e1id=(db(db.entity.name==e1).select())[0]['id']
     e2id=(db(db.entity.name==e2).select())[0]['id']
 
-    s1="select name, summary from diff_point, listing where listing.diff_point == diff_point.id and listing.entity==%d" % e1id
+    s1="select name, summary from diff_point, listing where listing.diff_point == diff_point.id and listing.entity==%d  order by diff_point.name" % e1id
     s1_res = db.executesql(s1)
-    s2="select name, summary from diff_point, listing where listing.diff_point == diff_point.id and listing.entity==%d" % e2id
+    s2="select name, summary from diff_point, listing where listing.diff_point == diff_point.id and listing.entity==%d  order by diff_point.name" % e2id
     s2_res = db.executesql(s2)
     return locals()
 
