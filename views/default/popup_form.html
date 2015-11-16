@@ -1,0 +1,89 @@
+{{extend 'layout.html'}}
+<style>
+#one { text-align: center}
+#twow {position: relative; width: 100%;}
+
+#two {
+position           : fixed;
+top                : 50%;
+left               : 50%;
+margin-left        : -200px;
+margin-top         : -150px;
+display            : none; /* change this */
+border             : 2px solid gray;
+min-height         : 250px;
+min-width          : 400px;
+-webkit-box-shadow : 18px 18px 7px -4px rgba(0,0,0,0.53);
+-moz-box-shadow    : 18px 18px 7px -4px rgba(0,0,0,0.53);
+box-shadow         : 18px 18px 7px -4px rgba(0,0,0,0.53);
+border-radius      : 10px;
+}
+#two div#form{
+    padding: 5px 10px;
+    padding-top: 2em;
+}
+#close{
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: 1px solid black;
+    border-radius      : 4px;
+    padding: 2px 6px;
+}
+    #close:hover{
+        color: gray;
+        border: 1px solid gray;
+    }
+    #two {
+        text-align:center;
+    }
+    div#form div input {margin: 7px;}
+    #forme div{ border: 0px solid red;}
+</style>
+<div id="one">one</div>
+<div id="two"><div id="twow"> <span id="close">x<span> </div>
+    <div id="form">
+        <form>
+            <div>Add differentiating point</div>
+            <div><input type="text" /></div>
+            <div>Enter value for each entity </div>
+            <div class="row" id="forme">
+                <div class="col-md-6">e1</div>
+                <div class="col-md-6">e2</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" />
+                </div>
+                <div class="col-md-6">
+                    <input type="text" />
+                </div>
+            </div>
+                <input type="submit" class="btn-primary"/>
+
+        </form>
+
+    </div>
+</div>
+<script>
+done=0
+$('#one').on('click', function() {
+    console.log('here one is');
+    if (done == 0) {
+        $('#two').show();
+        $('#two').animate({'top' : '-=70px'}, 120);
+        done=1;
+    }
+});
+
+$('#close').on('click', function() {
+    done=0;
+    console.log('closing div two');
+    $("#two").css('top','+=70px');
+    $('#two').hide();
+});
+
+</script>
+
