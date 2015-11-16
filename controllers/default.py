@@ -35,6 +35,10 @@ def difflet():
     s2_res = db.executesql(s2)
     return locals()
 
+def search():
+    recent_searches = ['India vs US','Yeast vs Baking Soda','Panther vs Cheetah']
+    return locals()
+
 def user():
     """
     exposes:
