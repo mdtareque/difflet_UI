@@ -37,6 +37,14 @@ def difflet():
 
 def search():
     recent_searches = ['India vs US','Yeast vs Baking Soda','Panther vs Cheetah']
+
+    entities = {
+
+        'Food':['Idli','Chole','Sambhar','Rasam'],
+        'Language':['C','C++','Java'],
+        'Country':['India','USA','Pakistan']
+    }
+
     return locals()
 
 def user():

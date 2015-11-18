@@ -42,7 +42,7 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *,cover
-databases/sql.log
+sql.log
 
 # Translations
 *.mo

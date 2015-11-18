@@ -1,24 +1,75 @@
 {{extend 'layout.html'}}
-<h1>Enter Chole vs Batura </h1>
+<h1>Enter any two entities </h1>
+
 <div class="row">
-    <div class="col-md-5 col-md-offset-4">
+    <div class="col-md-6 col-md-offset-3">
 
-    <form class="navbar-form navbar-left" role="search" action="difflet" method="get">
-      <div class="form-group">
-        <input name="e1" type="text" class="form-control" placeholder="Chole batura">
-        <input name="e2" type="text" class="form-control" placeholder="Poori bhaji">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+
+        <form class="navbar-form navbar-left" role="search" action="difflet" method="get">
+            <div class="dropdown col-md-2">
+
+                <button class="btn btn-default dropdown-toggle" type="button" value="category" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Category:
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+
+                      {{for index,category in enumerate(entities.keys(),start=1):}}
+                      <li id="no" value="{{=index}}"><a href="#">{{=category}}</a></li>
+                      {{pass}}
+
+                      </ul>
+            </div>
+
+
+          <div id="change" class="col-md-10">
+            <div class="ui-widget">
+                <input id="e1" name="e1" type="text" class="form-control" placeholder="Chole batura">
+                <input id="e2" name="e2" type="text" class="form-control" placeholder="Poori bhaji">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+          </div>
+
+        </form>
 
     </div>
-    <div class="col-md-5 col-md-offset-4">
-            <a href = "#" class = "list-group-item active">
-   <b>Recent Searches</b>
-</a>
-{{for search_item in recent_searches:}}
-<a href = "#" class = "list-group-item">{{=search_item}}</a>
-{{pass}}
+
+
+    <div class="col-md-6 col-md-offset-3">
+        <a href = "#" class = "list-group-item active">
+            <b>Recent Searches</b>
+        </a>
+        {{for search_item in recent_searches:}}
+        <a href = "#" class = "list-group-item">{{=search_item}}</a>
+        {{pass}}
 
     </div>
+
+
 </div>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+<script>
+
+    var d = {{=XML(entities)}};
+
+    $('.dropdown-menu').on( 'click', 'a', function() {
+        var target = $(this).closest('.dropdown').find('.dropdown-toggle')
+        var text = "Select Category ";
+        selectedVal = $(this).html();
+        var htmlText = selectedVal + ' <span class="caret"></span>';
+        target.html(htmlText);
+
+        $( "#e1" ).autocomplete({
+            source: d[selectedVal]
+        });
+        $( "#e2" ).autocomplete({
+            source: d[selectedVal]
+        });
+    });
+
+</script>
