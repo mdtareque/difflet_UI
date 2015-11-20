@@ -18,6 +18,10 @@ db.define_table('listing'
                ,Field('summary', 'text'))
 #               ,auth.signature)
 
+db.define_table('recent_searches'
+                ,Field('entity1')
+                ,Field('entity2'))
+
 # db.define_table('difflet'
 #                ,Field('entity1', 'reference entity')
 #                ,Field('entity2', 'reference entity')

@@ -1,46 +1,58 @@
 {{extend 'layout.html'}}
+<style>
+.recent_searches { text-align: center; }
+.recent_searches a:hover { background-color: lightgray; }
+#e1, #e2 {  width: 100px;}
+#dropdownMenu1 { width: 100px;}
+h1{text-align: center}
+
+
+</style>
 <h1>Enter any two entities </h1>
+
 
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
 
 
+      <div class="row">
         <form class="navbar-form navbar-left" role="search" action="difflet" method="get">
-            <div class="dropdown col-md-2">
+            <div class="dropdown col-md-3">
 
                 <button class="btn btn-default dropdown-toggle" type="button" value="category" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         Category:
                         <span class="caret"></span>
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 
                       {{for index,category in enumerate(entities.keys(),start=1):}}
                       <li id="no" value="{{=index}}"><a href="#">{{=category}}</a></li>
                       {{pass}}
 
-                      </ul>
+                </ul>
             </div>
 
 
-          <div id="change" class="col-md-10">
-            <div class="ui-widget">
-                <input id="e1" name="e1" type="text" class="form-control" placeholder="Chole batura">
-                <input id="e2" name="e2" type="text" class="form-control" placeholder="Poori bhaji">
-                <button type="submit" class="btn btn-default">Submit</button>
+            <div id="change" class="col-md-9">
+                <div class="ui-widget">
+                    <input id="e1" name="e1" type="text" class="form-control" placeholder="Chole batura">
+                    <input id="e2" name="e2" type="text" class="form-control" placeholder="Poori bhaji">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
             </div>
-          </div>
-
         </form>
+
+      </div>
 
     </div>
 
 
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3 recent_searches">
         <a href = "#" class = "list-group-item active">
             <b>Recent Searches</b>
         </a>
-        {{for search_item in recent_searches:}}
-        <a href = "#" class = "list-group-item">{{=search_item}}</a>
+        {{for e1,e2 in recent_searches:}}
+        <a href = "{{=URL('default', 'difflet', vars={'e1': e1, 'e2': e2})}}" class = "list-group-item">{{=e1 + ' vs ' + e2}}</a>
         {{pass}}
 
     </div>
