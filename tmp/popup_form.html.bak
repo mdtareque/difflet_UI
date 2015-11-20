@@ -1,0 +1,49 @@
+{{extend 'layout.html'}}
+
+<div> Hiiii </div>
+
+<style>
+html, body { width  : 100%; height : 100%; }
+#overlay-back {
+position   : absolute; top        : 0; left       : 0; width      : 100%; height     : 100%; background : #000; opacity    : 0.6; filter     : alpha(opacity=60); z-index    : 5; display    : none; }
+
+#overlay { position : absolute; top      : 0; left     : 0; width    : 100%; height   : 100%; z-index  : 10; display  : none;
+}
+
+#f{
+    display:none;
+}
+
+#show {
+
+
+}
+
+</style>
+<script>
+jQuery('#some-button').on('click', function () {
+    console.log('here');
+    jQuery('#overlay, #overlay-back').fadeIn(500);
+});
+</script>
+
+<a id="some-button" href="#">click me</a>
+<div id="overlay-back"></div>
+<div id="overlay"><span>YOUR HTML GOES HERE</span></div>
+
+<span id="show"> +++++</span>
+<div id="f">
+    <form>
+        Enter new category name:
+        <input type="text" />
+        <input type="submit" />
+    </form>
+
+</div>
+
+
+<div class="one" id="a">Hello</div>
+<div class="two" id="b">World</div>
+<script>
+jQuery('.one').click(function(){jQuery('.two').slideToggle()});
+</script>

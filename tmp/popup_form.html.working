@@ -1,0 +1,48 @@
+{{extend 'layout.html'}}
+<style>
+
+
+#two {
+position: fixed;
+top: 50%;
+left: 50%;
+    margin-left:-50px;
+    margin-top:10px;
+display: none;
+border: 2px solid red;
+min-height: 100px;
+min-width: 100px;
+
+}
+#close{
+    width: 10px;
+    height: 10px
+    display: block;
+    cursor: pointer;
+    position: relative;
+    top: 2px;
+    left: 4px;
+}
+</style>
+<div id="one">one</div>
+<div id="two">two <span id="close">x<span></div>
+<script>
+done=0
+$('#one').on('click', function() {
+    console.log('here one is');
+    if (done == 0) {
+        $('#two').show();
+        $('#two').animate({'top' : '-=60px'}, 'fast');
+        done=1;
+    }
+});
+
+$('#close').on('click', function() {
+    done=0
+    console.log('closing div two');
+    $("#two").css('top','+=60px');
+    $('#two').hide();
+});
+
+</script>
+

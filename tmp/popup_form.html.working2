@@ -1,0 +1,63 @@
+{{extend 'layout.html'}}
+<style>
+#one { text-align: center}
+#twow {position: relative; width: 100%;}
+
+#two {
+position           : fixed;
+top                : 50%;
+left               : 50%;
+margin-left        : -200px;
+margin-top         : -120px;
+display            : block; /* change this */
+border             : 2px solid red;
+min-height         : 200px;
+min-width          : 400px;
+-webkit-box-shadow : 18px 18px 7px -4px rgba(0,0,0,0.53);
+-moz-box-shadow    : 18px 18px 7px -4px rgba(0,0,0,0.53);
+box-shadow         : 18px 18px 7px -4px rgba(0,0,0,0.53);
+border-radius      : 10px;
+}
+#two div#form{
+    padding: 5px 10px;
+    padding-top: 2em;
+}
+#close{
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: 1px solid black;
+    border-radius      : 4px;
+    padding: 2px 6px;
+}
+    #close:hover{
+        color: gray;
+        border: 1px solid gray;
+    }
+</style>
+<div id="one">one</div>
+<div id="two"><div id="twow"> <span id="close">x<span> </div>
+    <div id="form">some text ok</div>
+</div>
+<script>
+done=0
+$('#one').on('click', function() {
+    console.log('here one is');
+    if (done == 0) {
+        $('#two').show();
+        $('#two').animate({'top' : '-=60px'}, 'fast');
+        done=1;
+    }
+});
+
+$('#close').on('click', function() {
+    done=0;
+    console.log('closing div two');
+    $("#two").css('top','+=60px');
+    $('#two').hide();
+});
+
+</script>
+

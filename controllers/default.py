@@ -12,6 +12,9 @@ def difflet_template():
     #redirect(URL('static', 'difflet_template.html'))
     return locals()
 
+def popup_form():
+    return locals()
+
 def index():
     """
     example action using the internationalization operator T and flash
