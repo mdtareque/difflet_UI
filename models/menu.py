@@ -5,17 +5,17 @@
 ## Customize your APP title, subtitle and menus here
 #########################################################################
 
-response.logo = A(B('web',SPAN(2),'py'),XML('&trade;&nbsp;'),
-                  _class="navbar-brand",_href="http://www.web2py.com/",
+response.logo = A(B('diff',SPAN('L'),'et'),XML('&trade;&nbsp;'),
+        _class="navbar-brand",_href="http://www.127.0.0.0:8000/",
                   _id="web2py-logo")
 response.title = request.application.replace('_',' ').title()
 response.subtitle = ''
 
 ## read more at http://dev.w3.org/html5/markup/meta.name.html
-response.meta.author = 'Your Name <you@example.com>'
-response.meta.description = 'a cool new app'
-response.meta.keywords = 'web2py, python, framework'
-response.meta.generator = 'Web2py Web Framework'
+response.meta.author = 'Md Tareque Khan , Harshendra Avabratha'
+response.meta.description = 'difference between any entities'
+response.meta.keywords = 'difference between, diff, difflet, point by point comparision'
+response.meta.generator = 'difflet point by point comparision'
 
 ## your http://google.com/analytics id
 response.google_analytics_id = None
@@ -25,10 +25,13 @@ response.google_analytics_id = None
 #########################################################################
 
 response.menu = [
-    (T('Home'), False, URL('default', 'index'), [])
+    (T('Home'), False, URL('default', 'index'), []),
+    (T('Search'), False, URL('default', 'search'), []),
+    (T('Upload CSV'), False, URL('default', 'csv_upload'), []),
+    (T('About'), False, URL('default', 'about'), []),
 ]
 
-DEVELOPMENT_MENU = True
+DEVELOPMENT_MENU = False
 
 #########################################################################
 ## provide shortcuts for development. remove in production
@@ -135,4 +138,4 @@ def _():
         ]
 if DEVELOPMENT_MENU: _()
 
-if "auth" in locals(): auth.wikimenu() 
+if "auth" in locals(): auth.wikimenu()

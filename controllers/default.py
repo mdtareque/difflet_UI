@@ -133,6 +133,9 @@ def csv_upload():
     return dict(form=form)
 
 
+def about():
+    return locals()
+
 
 def user():
     """
