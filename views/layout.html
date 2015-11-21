@@ -47,6 +47,9 @@
     middle_column = {0: mc0, 1: mc1, 2: mc2}[
     (left_sidebar_enabled and 1 or 0)+(right_sidebar_enabled and 1 or 0)]
     }}
+    <style>
+.navbar li a {font-weight: bold;}
+    </style>
   </head>
   <body>
     <!--[if lt IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
@@ -73,7 +76,7 @@
         </div>
       </div>
     </nav>
-    <!-- Masthead ===================================== -->    
+    <!-- Masthead ===================================== -->
     {{block header}}
     {{end}}
     <!-- Main ========================================= -->
@@ -105,14 +108,10 @@
 
     </div>
 
-    {{block footer}} <!-- this is default footer -->      
+    {{block footer}} <!-- this is default footer -->
     <footer class="footer">
       <div class="container-fluid">
         <div class="copyright pull-left">{{=T('Copyright')}} &#169; {{=request.now.year}}</div>
-          <div id="poweredBy" class="pull-right">
-            {{=T('Powered by')}}
-            <a href="http://www.web2py.com/">web2py</a>
-          </div>
       </div>
     </footer>
     {{end}}
@@ -131,6 +130,5 @@
     </script>
     {{pass}}
     <!-- Share ============================y============ -->
-    <script src="{{=URL('static','js/share.js',vars=dict(static=URL('static','images')))}}"></script>
   </body>
 </html>

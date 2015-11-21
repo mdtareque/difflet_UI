@@ -1,64 +1,10 @@
 {{extend 'layout.html'}}
-<style>
-.leftPane img, .rightPane img {
-    width: 300px;
-    height: 200px;
-}
-#one { text-align : center}
-#twow {position   : relative; width : 100%;}
-
-#two {
-    background: white;
-position           : fixed;
-top                : 50%;
-left               : 50%;
-margin-left        : -200px;
-margin-top         : -150px;
-display            : none; /* change this */
-border             : 2px solid gray;
-min-height         : 250px;
-min-width          : 400px;
--webkit-box-shadow : 18px 18px 7px -4px rgba(0,0,0,0.53);
--moz-box-shadow    : 18px 18px 7px -4px rgba(0,0,0,0.53);
-box-shadow         : 18px 18px 7px -4px rgba(0,0,0,0.53);
-border-radius      : 10px;
-}
-#two div#form{
-    padding     : 5px 10px;
-    padding-top : 2em;
-}
-#one{
-    cursor        : pointer;
-/*    border: 1px solid black;
-border-radius      : 15px;
-padding: 5px 20px; */
-}
-#close{
-    display       : block;
-    cursor        : pointer;
-    position      : absolute;
-    top           : 5px;
-    right         : 5px;
-    border        : 1px solid black;
-    border-radius : 4px;
-    padding       : 2px 6px;
-}
-#close     : hover{
-    color  : gray;
-    border : 1px solid gray;
-}
-#two {
-    text-align : center;
-}
-div#form div input {margin : 7px;}
-#forme div { border         : 0px solid red;}
-</style>
 
 <div class="main">
   <div class="row heading">
     <div class="col-md-2"></div>
     <div class="col-md-4 leftPane">{{=e1}}</div>
-    <div class="col-md-4 rightPane">{{=e2}} </div>
+    <div class="col-md-4 hrightPane">{{=e2}} </div>
   </div>
 
   {{if 'img' in output:}}

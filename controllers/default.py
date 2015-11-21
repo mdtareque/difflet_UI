@@ -26,13 +26,6 @@ def addDiffPoint():
 
 
 def index():
-    """
-    example action using the internationalization operator T and flash
-    rendered by views/default/index.html or views/generic.html
-
-    if you need a simple wiki simply replace the two lines below with:
-    return auth.wiki()
-    """
     redirect(URL('default', 'search'))
     response.flash = T("Hello World")
     return dict(message=T('Welcome to web2py!'))
@@ -82,10 +75,6 @@ def difflet():
     return locals()
 
 def search():
-    if auth.user is not None:
-        print auth.user.id
-    else:
-        print 'No user logged in'
     last5=db(db.recent_searches).select(orderby=~db.recent_searches.id , limitby=(0,5))
     recent_searches = [ (row['entity1'], row['entity2'])  for row in last5 ]
     categories = db(db.category).select()
@@ -98,11 +87,8 @@ def search():
     return locals()
 
 def processCsv(folder, csvf):
-    print folder, csvf
-    print type(folder),type(csvf)
     import csv
     filename = folder + '/' + csvf
-    print filename
     with open(filename, 'rb') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         header = next(reader)
@@ -118,13 +104,11 @@ def processCsv(folder, csvf):
                 nid = presentAlready[0]['id']
             for i in range(1, len(row)):
                 db.listing.insert(entity=entities[i-1], diff_point=nid, summary = row[i])
-            print row
+    return
 
 def csv_upload():
     form = SQLFORM.factory(Field('csv_file', 'upload', uploadfolder=UPLOAD_PATH, requires = [ IS_NOT_EMPTY(), IS_UPLOAD_FILENAME(extension='csv')] ) )
     if form.process().accepted:
-        print form.vars.csv_file
-        print type(form.vars.csv_file)
         response.flash = "File Uploaded!"
         processCsv(UPLOAD_PATH, form.vars.csv_file)
         # redirect(URL('default', 'search'))
